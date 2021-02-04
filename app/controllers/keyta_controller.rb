@@ -17,18 +17,27 @@ class KeytaController < ApplicationController
       temp = @data[0]["results"][0]["services"][0]["totalPrice"]
       markup = @data[0]["results"][0]["services"][0]["totalPrice"]
       if temp >= 0 && temp <= 17000
-        @data[0]["results"][0]["services"][0]["hargaMarkup"] = markup + 1000
+        @data[0]["results"][0]["services"][0]["markupPrice"] = markup + 1000
       elsif temp >= 17001 && temp <= 30000
-        @data[0]["results"][0]["services"][0]["hargaMakrup"] = markup + 2000
+        @data[0]["results"][0]["services"][0]["markupPrice"] = markup + 2000
       elsif temp >= 30001 && temp <= 40000
-        @data[0]["results"][0]["services"][0]["hargaMarkup"] = markup + 3000
+        @data[0]["results"][0]["services"][0]["markupPrice"] = markup + 3000
       elsif temp >= 40001 && temp <= 129000
-        @data[0]["results"][0]["services"][0]["hargaMarkup"] = markup + 5000
+        @data[0]["results"][0]["services"][0]["markupPrice"] = markup + 5000
       elsif temp >= 129001
-        @data[0]["results"][0]["services"][0]["hargaMarkup"] = markup + 7000
+        @data[0]["results"][0]["services"][0]["markupPrice"] = markup + 7000
       end
     end
     render json: { data: @data[0] }, status: :ok
+  end
+
+  def numberthree
+    @data[0]["query"]["courier"] = @data[0]["query"]["courier"].to_a.reverse
+
+    result = []
+    result.push(@data[0]["query"]["courier"][0..2])
+
+    render json: { Expedisi: result }, status: :ok
   end
   
   def getdata
