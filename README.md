@@ -1,24 +1,36 @@
-# README
+# HOW TO INSTALL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##### Prerequisites
 
-Things you may want to cover:
+The setups steps expect following tools installed on the system.
 
-* Ruby version
+- Ruby [2.7.0p0]
+- Rails [6.1.1]
 
-* System dependencies
+##### 1. Clone the repository
 
-* Configuration
+```bash
+git clone https://github.com/feedlyy/Keyta.git
+```
 
-* Database creation
+##### 2. Install all dependencies
 
-* Database initialization
+```bash
+1. run yarn install
+2. run bundle install
+```
 
-* How to run the test suite
+##### 3. Start the Rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+You can start the rails server using the command given below.
 
-* Deployment instructions
+```ruby
+bundle exec rails s or rails s
+```
 
-* ...
+And now you can visit the site with the URL http://localhost:3000
+
+# EXTRA
+
+##### Answer
+All of list of routes are in routes.rb
